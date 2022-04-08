@@ -1,10 +1,20 @@
 <template>
-    <section class="users">
-        <h1>Who's using Roku?</h1>
+<section class="users">
+    <h1 class="users-headline text-center">Profiles</h1>
+    <section class="users-container">
+        <User class="user-panel"
+            v-for="user in users"
+            :key="user.id"
+            :user="user"
+        >
+        </User>
     </section>
-</template>
+
+</section> 
+</template> 
 
 <script>
+import User from "@/components/User.vue"
 
 export default {
     name: 'TheUsersView',
@@ -12,8 +22,27 @@ export default {
     created() {
         fetch('/users/getall')
             .then(res => res.json())
-            .then(data => console.table(data))
+            .then(data => {
+                console.table(data);
+                this.users = data;
+                })
         .catch(err => console.error(err));
+    },
+
+    data(){
+        return {
+            users: []
+        }
+    },
+
+    components: {
+        User
     }
 }
 </script>
+
+<style lang="scss">
+  @import "@/assets/sass/vars.scss";
+  @import "@/assets/sass/main.scss";
+  @import "@/assets/sass/userselect.scss";
+</style>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Login from '../views/LoginVue.vue'
 import UserSelect from '../views/UserSelectVue.vue'
+import Home from '../views/Home.vue'
 
 const routes = [
   {
@@ -12,8 +13,14 @@ const routes = [
     path: '/UserSelect',
     name: 'TheUsersView',
     component: UserSelect,
-    params: true
+    props: true
   },
+  {
+    path: '/Home',
+    name: 'UserHome',
+    component: Home,
+    props: true
+  }
 
 ]
 
