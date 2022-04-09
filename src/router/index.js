@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: '/UserSelect',
-    name: 'TheUsersView',
+    name: 'TheUsersView', 
     component: UserSelect,
     props: true
   },

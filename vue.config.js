@@ -1,6 +1,9 @@
 const BASE_PATH = "http://localhost:3000";
 const UMS_PATH = "/users";
 
+//add the API endpoints
+const API_URL = "http://localhost:8888/Roku_Flashback/api/index.php"
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -11,7 +14,7 @@ module.exports = {
             @import "@/assets/sass/main.scss";
           `
       }
-    }
+    } 
   },
 
   devServer: {
@@ -19,8 +22,13 @@ module.exports = {
       '/users': {
         target: `${BASE_PATH + UMS_PATH}`,
         changeOrigin: true,
-        pathRewrite: {
-          '^/users' : '' }
+        pathRewrite: { '^/users' : '' }
+        },
+
+      '/movies': {
+        target: `${API_URL}`,
+        changeOrigin: true,
+        pathRewrite: { '^/movies' : '' }
         }
       }
     }
