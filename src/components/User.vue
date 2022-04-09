@@ -5,9 +5,7 @@
 
               <img :src="require('@/assets/images/' + user.avatar)"
             class="rounded-circle img-fluid" alt="avatar" >
-            <h2>Name {{ user.first_name }}</h2>
-
-            <h2>{{ user.avatar }}</h2>
+            <h2> {{ user.first_name }}</h2>
         </div>
     </article> 
 </template>

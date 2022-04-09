@@ -1,6 +1,6 @@
 <template>
 <section class="users">
-    <h1 class="users-headline text-center">Profiles</h1>
+    <h1 class="users-headline text-center">Who's Watching?</h1>
     <section class="users-container">
         <User class="user-panel"
             v-for="user in users"
@@ -17,8 +17,8 @@
 import User from "@/components/User.vue"
 
 export default {
-    name: 'TheUsersView',
-
+    name: 'TheUsersView', 
+ 
     created() {
         fetch('/users/getall')
             .then(res => res.json())

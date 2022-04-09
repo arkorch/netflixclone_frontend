@@ -1,19 +1,29 @@
 <template>
-  <section class="container">
+  <section class="container backgr">
     <div class="jumbotron">
         <h1>Welcome to Flashblack!</h1>
         <p class="lead">
         Before revisiting your favourite movies, tv shows or music from yesteryear, please log in with a valid username and password.
         </p>
     </div>
+    <!--h2 class="login-flash" v-if="signup">{{ flash }}</h2-->
+    <h2 class="login-flash" v-if="errors">{{ flash }}</h2>
 
     <section class="log-in">
       <label class="sr-only" for="inlineFormInputName">Name</label>
-      <input v-model="username" type="text" class="form-control" id="inlineFormInputName" placeholder="username" required>
+      <input v-model="username" type="text" class="form-control" id="inlineFormInputName" placeholder="username" required v-on:keyup.enter="login">
 
       <label class="sr-only" for="inlineFormPassword">Name</label>
-      <input v-model="password" type="password" class="form-control" id="inlineFormPassword" placeholder="password" required>
+      <input v-model="password" type="password" class="form-control" id="inlineFormPassword" placeholder="password" required v-on:keyup.enter="login">
     </section>
+
+    <button
+        v-if="signup"
+        type="submit" 
+        class="btn btn-primary login-submit signup"
+        @click="trySignUp"
+      >Sign Up
+    </button>
 
     <button
         type="submit" 
@@ -36,40 +46,91 @@
     
     data () {
       return{
+          errors: [],
           username: '',
-          password: ''
+          password: '',
+          url: 'users/getone',
+          signup: false,
+          flash: ''
       }
     },
     methods: {
+      tryLogin() {
+        this.url = 'users/getone';
+        this.login();
+      },
+
+      trySignUp() {
+        // Form Validation
+        //this.errors = [];
+        if(!this.username) {
+          //this.errors.push('User Name is required');
+          this.flash = 'User Name is required';
+        }
+        else if(!this.password) {
+          //this.errors.push('Password is required');
+          this.flash = 'Password is required';
+        }
+        else {
+          this.url = '/users/signup';
+        this.login();
+        }
+        
+      },
+
+      goToUser(time, vm) {
+        setTimeout(function() {
+          vm.$emit('setauth', true);
+          vm.$router.push({ name: 'TheUsersView'});
+
+        }, time);
+      },
+
       login() {
         // hit the backend UMS with user n pass
- 
-        debugger;
 
-        //mock up login
-        //navigate to nextt view
-        this.$router.push({ name: 'TheUsersView'});
- 
-/*
-        let formData = new FormData();
+        //formData is a vitual <form> element data
+        let formData = { username: this.username, password: this.password };
 
-        formData.append("username", this.username);
-        formData.append("password", this.password);
-
-        let url = `someloginurl` //toodo fix when available
+        //pass the form data to our login API
+        let url = this.url; 
 
         fetch(url, {
           method: 'POST',
-          body: formData
+          headers: {
+            "Content-type" : "application/json"
+          },
+          body: JSON.stringify(formData)
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
-          //for pass route and fail alert for login
-        })
-        .catch((error) => console.error(error)); */
-      }
+          console.table(data);
+ 
+          switch(data.action) {
+            case 'add': //user doesnt exist
+              this.signup = true;
+              this.username = '';
+              this.password = '';
+              this.flash = 'The username does not exist, please try signup !!';
+              break;
 
+            case 'added': //adding new user
+              this.flash = 'Added you to Roku Flashback! Enjoy! .....redirecting.......';
+              this.goToUser(2500, this);
+              break;
+
+            case 'retry': //wrong password
+              document.querySelector(`input[type=${data.field}]`).classList.add('error');
+              this.errors = true;
+              this.flash = 'Your login details are incorrect, please try again !!';
+              break;
+
+            default: //successful authenticaltion. go to users page
+              this.goToUser(0, this);  
+          }
+          })
+        .catch(err => console.error(err)); 
+      }
     }
   }
 </script>
