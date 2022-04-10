@@ -1,21 +1,20 @@
 <template>
 <section>
+<h1>This is my new music pages</h1>
+
     <!-- custom component got here- show current selection -->
     <section class="movie-container">
-      <div class="movie_data">
       <MovieData
       :movies_title="currentMovie.movies_title"
       :movies_storyline="currentMovie.movies_storyline"
       :movies_runtime="currentMovie.movies_runtime"
       :movies_year="currentMovie.movies_year"
       >
-      </MovieData></div>
-      <div class="movie_vid">
+      </MovieData>
       <MoviePlayer
         :movies_trailer="currentMovie.movies_trailer"
-      ></MoviePlayer></div>
+      ></MoviePlayer>
     </section>
-    <br><br><br>
     <!-- custom component got here -->
     <section class="movie-thumbs">
       <MovieThumb
@@ -24,8 +23,8 @@
         :thumb="movie.movies_cover"
         @click="setCurrentMovie(movie)"
       ></MovieThumb>
-    </section>  
-
+    </section> 
+    
 </section>
 </template>
 
@@ -35,7 +34,7 @@ import MovieData from "@/components/MovieData.vue";
 import MovieThumb from "@/components/MovieThumb.vue";
 
 export default {
-  name: "UserHome",
+  name: "TheMusicView",
 
   props: {
       first_name: String,

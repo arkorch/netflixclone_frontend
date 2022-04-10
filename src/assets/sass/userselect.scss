@@ -6,7 +6,6 @@
 
     .user-panel { 
         flex: 0 1 150px; 
-        border: 2px solid rgba(255, 255, 255, 0.2);
         border-radius: 0.5em;
         margin: 0 1em;
         background-color: #333;
@@ -14,4 +13,9 @@
 
         img { margin-bottom: 0.75em; }
     }
+
+    .resp_user{
+        width: 100%;
+    }
 }
+

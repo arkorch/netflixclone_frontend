@@ -1,41 +1,40 @@
 <template>
 <section>
+<h1>This is my new TV VIEW pages</h1>
+
     <!-- custom component got here- show current selection -->
     <section class="movie-container">
-      <div class="movie_data">
-      <MovieData
-      :movies_title="currentMovie.movies_title"
-      :movies_storyline="currentMovie.movies_storyline"
-      :movies_runtime="currentMovie.movies_runtime"
-      :movies_year="currentMovie.movies_year"
+      <TvData
+      :tvshows_title="currentTvshow.tvshows_title"
+      :tvshows_storyline="currentTvshow.tvshows_storyline"
+      :tvshows_runtime="currentTvshow.tvshows_runtime"
+      :tvshows_year="currentTvshow.tvshows_year"
       >
-      </MovieData></div>
-      <div class="movie_vid">
-      <MoviePlayer
-        :movies_trailer="currentMovie.movies_trailer"
-      ></MoviePlayer></div>
+      </TvData>
+      <TvPlayer
+        :tvshows_trailer="currentTvshow.tvshows_trailer"
+      ></TvPlayer>
     </section>
-    <br><br><br>
     <!-- custom component got here -->
     <section class="movie-thumbs">
-      <MovieThumb
+      <TvThumb
         v-for="movie in movies"
         :key="movie.movies_id"
         :thumb="movie.movies_cover"
-        @click="setCurrentMovie(movie)"
-      ></MovieThumb>
-    </section>  
-
+        @click="setcurrentTvshow(movie)"
+      ></TvThumb>
+    </section> 
+    
 </section>
 </template>
 
 <script>
-import MoviePlayer from "@/components/MoviePlayer.vue";
-import MovieData from "@/components/MovieData.vue";
-import MovieThumb from "@/components/MovieThumb.vue";
+import TvPlayer from "@/components/TvPlayer.vue";
+import TvData from "@/components/TvData.vue";
+import TvThumb from "@/components/TvThumb.vue";
 
 export default {
-  name: "UserHome",
+  name: "TheTvView",
 
   props: {
       first_name: String,
@@ -58,35 +57,35 @@ export default {
       }
 
 
-    fetch('/movies')
+    fetch('/tvshow')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 //push movies into vue instance
-                this.movies = data[0];
+                this.tvshows = data[0];
                 //set deffault random movie
-                this.currentMovie = data[0][Math.floor(Math.random() * data[0].length)];
+                this.currentTvshow = data[0][Math.floor(Math.random() * data[0].length)];
             })
         .catch(error => console.error(error));
   },
 
   data() {
     return {
-      movies: [],
-      currentMovie: {}
+      tvshows: [],
+      currentTvshow: {}
     }
   },
 
    methods: {
-       setCurrentMovie(movie) {
-         this.currentMovie = movie;
+       setCurrentTvshows(tvshows) {
+         this.currentTvshow = tvshows;
        }
    },
 
   components: {
-    MoviePlayer,
-    MovieData ,
-    MovieThumb
+    TvPlayer,
+    TvData ,
+    TvThumb
   }
 }
 </script>

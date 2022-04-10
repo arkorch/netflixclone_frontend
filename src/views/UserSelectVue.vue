@@ -1,5 +1,5 @@
 <template>
-<section class="users">
+<section class="users resp_user">
     <h1 class="users-headline text-center">Who's Watching?</h1>
     <section class="users-container">
         <User class="user-panel"
