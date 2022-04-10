@@ -1,8 +1,15 @@
 # Netflix CLone Front End
 Research 2 assignment using Laravel Lumen. This API is used by the Netflix Clone.
 
-# Link to Netflix Clone Repository
-https://github.com/arkorch/netflixclone_frontend.git
+# Setup
+- clone repo
+- import users to localhost php my admin (in backend repo)
+- import movies db to localhost php my admin (in frontend repo)
+netflixclone_frontend > Roku_Flashback > database_to_copy_to_php_my_admin
+- house the Roku_Flashback Folder in htdocs
+- in backend- npm install + node app
+- in frontend- npm install + npm run serve
+- enter correct login details OR sign-up
 
 # Link to Heroku Live Server
 https://netflix-clone-arko-madhur.herokuapp.com/
