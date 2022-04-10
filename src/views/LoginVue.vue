@@ -1,14 +1,16 @@
 <template>
   <section class="container backgr">
-    <div class="jumbotron">
-        <h1>Welcome to Flashblack!</h1>
-        <p class="lead">
-        Before revisiting your favourite movies, tv shows or music from yesteryear, please log in with a valid username and password.
+    <div class="login-box">
+    <div class="welcome_mes">
+        <h1>Welcome to Netflix</h1>
+        <p>
+        Watch the best movies movies and TV shows. Find your favourite arists, listen to music for free. Login to continue.
         </p>
     </div>
     <!--h2 class="login-flash" v-if="signup">{{ flash }}</h2-->
     <h2 class="login-flash" v-if="errors">{{ flash }}</h2>
 
+    <section class="all_loogin">
     <section class="log-in">
       <label class="sr-only" for="inlineFormInputName">Name</label>
       <input v-model="username" type="text" class="form-control" id="inlineFormInputName" placeholder="username" required v-on:keyup.enter="login">
@@ -29,8 +31,10 @@
         type="submit" 
         class="btn btn-primary login-submit"
         @click="login"
-      >Go!
+      >Login
     </button>
+    </section>
+    </div>
   </section>
 </template>
 

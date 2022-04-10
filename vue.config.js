@@ -3,6 +3,7 @@ const UMS_PATH = "/users";
 
 //add the API endpoints
 const API_URL = "http://localhost:8888/Roku_Flashback/api/index.php"
+const API_URL_2 = "http://localhost:8000/api/tvshow/onlykids"
 
 module.exports = {
   css: {
@@ -29,7 +30,14 @@ module.exports = {
         target: `${API_URL}`,
         changeOrigin: true,
         pathRewrite: { '^/movies' : '' }
-        }
+        },
+
+        '/tvshows': {
+          target: `${API_URL_2}`,
+          changeOrigin: true,
+          pathRewrite: { '^/tvshows' : '' }
+          }
+
       }
     }
 };
