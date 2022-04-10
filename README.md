@@ -1,5 +1,5 @@
 # Netflix CLone Front End
-Research 2 assignment using Laravel Lumen. This API is used by the Netflix Clone.
+Building a netflix clone using the Vue CLI. NodeJs and Express are used for this. There is no php used in front-end or back-end repositories. Php & it's framework Lumen have been used to create API which we fetch using Vue js.  
 
 # Setup
 - clone repo
