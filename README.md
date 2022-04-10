@@ -9,7 +9,7 @@ netflixclone_frontend > Roku_Flashback > database_to_copy_to_php_my_admin
 - house the Roku_Flashback Folder in htdocs
 - in backend- npm install + node app
 - in frontend- npm install + npm run serve
-- enter correct login details OR sign-up
+- enter correct login details OR sign-up.
 
 # Link to Heroku Live Server
 https://netflix-clone-arko-madhur.herokuapp.com/
