@@ -11,9 +11,6 @@ netflixclone_frontend > Roku_Flashback > database_to_copy_to_php_my_admin
 - in frontend- npm install + npm run serve
 - enter correct login details OR sign-up
 
-# Link to Heroku Live Server
-https://netflix-clone-arko-madhur.herokuapp.com/
-
 # Features, Fixed & Dev Notes 
 https://docs.google.com/document/d/1R9CMQ13MKsndZQQW1OmvRt4v68bBbib2xLeSVXzU_AI/edit?usp=sharing
 
