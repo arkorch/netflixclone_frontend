@@ -1,9 +1,16 @@
 const BASE_PATH = "http://localhost:3000";
 const UMS_PATH = "/users";
 
+const BASE_API_PATH = "http://[::1]:8000";
+const TVSHOWKIDS_PATH = "/api/movies/onlykids";
+
+// /api/movies/onlykids
+const TVSHOWADULT_PATH = "/api/movies/onlyadult";
+
 //add the API endpoints
-const API_URL = "http://localhost:8888/Roku_Flashback/api/index.php"
-const API_URL_2 = "http://localhost:8000/api/tvshow/onlykids"
+//const API_URL = "http://localhost:8888/Roku_Flashback/api/index.php"
+//const API_URL = "http://localhost:8000/api/tvshow/onlykids"
+//const API_URL_2 = "http://[::1]:8000/api/tvshow/onlykids"
 
 module.exports = {
   css: {
@@ -27,15 +34,17 @@ module.exports = {
         },
 
       '/movies': {
-        target: `${API_URL}`,
+        target: `${BASE_API_PATH + TVSHOWADULT_PATH}`, 
         changeOrigin: true,
         pathRewrite: { '^/movies' : '' }
         },
 
-        '/tvshows': {
-          target: `${API_URL_2}`,
+        "/tvshows": {
+          target: `${BASE_API_PATH + TVSHOWKIDS_PATH}`,
           changeOrigin: true,
-          pathRewrite: { '^/tvshows' : '' }
+          secure:false,
+          logLevel: 'debug',
+          pathRewrite: { '^/tvshows' : '' },
           }
 
       }

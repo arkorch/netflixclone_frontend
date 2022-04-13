@@ -1,6 +1,6 @@
 <template>
     <div class="thumb-wrapper">
-        <img :src="require('@/assets/images/video/' + thumb)" alt="media thumb">
+        <img :src="'/image/'+thumb "/>
     </div>
 </template>
 
@@ -8,8 +8,6 @@
 export default {
     name: "TheMovieThumb",
 
-    props: {
-        thumb: String
-    }
+    props: ['thumb','name']
 }
 </script>

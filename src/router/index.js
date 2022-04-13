@@ -3,8 +3,8 @@ import Login from '../views/LoginVue.vue'
 import UserSelect from '../views/UserSelectVue.vue'
 import Home from '../views/Home.vue'
 import Music from '../views/Music.vue'
-import TvShows from '../views/TvShows.vue'
-
+//import TvShows from '../views/TvShows.vue'
+import Hello from '../views/Hello.vue'
 const routes = [
   {
     path: '/',
@@ -21,7 +21,7 @@ const routes = [
     path: '/Home',
     name: 'UserHome',
     component: Home,
-    props: true
+    props: route => ({profile_type: route.query.profile_type ? route.query.profile_type : 'adult'})
   },
   {
     path: '/Music',
@@ -32,10 +32,9 @@ const routes = [
   {
     path: '/TvShows',
     name: 'TheTvView',
-    component: TvShows,
+    component: Hello,
     props: true
   },
-
 
 ]
 

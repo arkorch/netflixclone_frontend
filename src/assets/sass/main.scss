@@ -1,31 +1,42 @@
 body {
     color: $main-text-color;
-    background-color: $main-bg-color;
+    background-color: #ece0fb74;
     font-size: $main-font-size;
     font-family: $main-font-family;
 }
 .col-sm-12 {
     padding-left: 0em;
     padding-right: 0em;
+}
 
+.users{
+    color: #5f0084
+    
+}
+
+.navbar {
+    background-color: #d1c4e9;
+    border-radius: 0px;
+    border: none;
+    margin: 0.5em;
+    box-shadow: 5px 7px #88599a;
 }
 
 .roku-header {
-    background-color: black;
+    background-color: rgb(152, 18, 18);
 }
 
 .nav_ico {
     margin: 1em;
+    color: #5f0084;
 }
 footer{
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #111;
-    height: auto;
-    width: 100vw;
+    background: #efc7ff;
     padding-top: 40px;
     color: #fff;
+    margin: 0.5em 0.5em 2em 0.5em;
+    box-shadow: 5px 7px #88599a;
+    color: #39004f;
 }
 .footer-content{
     display: flex;
@@ -45,7 +56,6 @@ footer{
     margin: 10px auto;
     line-height: 28px;
     font-size: 14px;
-    color: #cacdd2;
 }
 .socials{
     list-style: none;
@@ -59,28 +69,24 @@ footer{
 }
 .socials a{
     text-decoration: none;
-    color: #fff;
-    border: 1.1px solid white;
+    color: #5f0084;
+    border: 1.1px solid #5f0084;
     padding: 5px;
-
     border-radius: 50%;
 
 }
 .socials a i{
     font-size: 1.1rem;
     width: 20px;
-
-
     transition: color .4s ease;
 
 }
 .socials a:hover i{
-    color: aqua;
+    color: #9738bc;
 }
 
 .footer-bottom{
-    background: #E50914;
-    width: 100vw;
+    background: #63008a;
     padding: 20px;
 padding-bottom: 40px;
     text-align: center;
@@ -92,7 +98,6 @@ float: left;
     text-transform: capitalize;
 }
 .footer-bottom p a{
-  color:#44bae8;
   font-size: 16px;
   text-decoration: none;
 }
@@ -115,9 +120,6 @@ display: block;
 .footer-menu ul li a{
   color: #cfd2d6;
   text-decoration: none;
-}
-.footer-menu ul li a:hover{
-  color: #27bcda;
 }
 
 @media (max-width:500px) {

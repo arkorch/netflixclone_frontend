@@ -11,17 +11,17 @@
       :tvshows_year="currentTvshow.tvshows_year"
       >
       </TvData>
-      <TvPlayer
+      <TvPlayer 
         :tvshows_trailer="currentTvshow.tvshows_trailer"
       ></TvPlayer>
     </section>
     <!-- custom component got here -->
     <section class="movie-thumbs">
       <TvThumb
-        v-for="movie in movies"
+        v-for="movie in tvshows"
         :key="movie.movies_id"
         :thumb="movie.movies_cover"
-        @click="setcurrentTvshow(movie)"
+        @click="setcurrentTvshow(movie)" 
       ></TvThumb>
     </section> 
     
@@ -35,13 +35,6 @@ import TvThumb from "@/components/TvThumb.vue";
 
 export default {
   name: "TheTvView",
-
-  props: {
-      first_name: String,
-      role: String,
-      permissions: String,
-      avatar: String
-  },
 
   created() {
     //store this user to local host
@@ -70,6 +63,7 @@ export default {
   },
 
   data() {
+    console.log('tv shows component loaded')
     return {
       tvshows: [],
       currentTvshow: {}

@@ -3,7 +3,7 @@ video {
     min-width: 100%;
     max-width: 100%;
 }
-
+ 
 .movie-thumbs {
     margin-top: 1em;
     max-height: 400px;
@@ -22,14 +22,16 @@ video {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0.5em;
+    padding: 1em;
 
     .movie_data {
         width: 100%;
+        font-size: 1em;
     }
     
-    .movievid {
+    .movie_vid {
         width: 100%;
+        padding: 2em 4em 2em 4em;
     }
 }
 

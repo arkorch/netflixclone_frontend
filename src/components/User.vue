@@ -1,6 +1,6 @@
 <template>
     <article class="card-rounded">
-        <div class="card-body text-center" @click="navToHome">
+        <div class="card-body text-center" >
             <!-- dynamic images need to be imported like a module using require -->
 
               <img :src="require('@/assets/images/' + user.avatar)"
@@ -27,5 +27,6 @@ export default {
     }
 }
 </script>
+
 
 

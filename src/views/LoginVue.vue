@@ -2,7 +2,7 @@
   <section class="container backgr">
     <div class="login-box">
     <div class="welcome_mes">
-        <h1>Welcome to Netflix</h1>
+        <h1>Welcome to Roku Streaming App </h1>
         <p>
         Watch the best movies movies and TV shows. Find your favourite arists, listen to music for free. Login to continue.
         </p>
