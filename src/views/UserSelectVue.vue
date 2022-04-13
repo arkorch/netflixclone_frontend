@@ -1,11 +1,13 @@
 <template>
 <section class="users resp_user">
-    <h1 class="users-headline text-center">Who's Watching?</h1>
+        <br>
+    <h1 class="users-headline text-center"> Who's Watching?</h1>
     <section class="users-container">
         <User class="user-panel"
             v-for="user in users"
             :key="user.id"
             :user="user"
+            @click="onProfileSelected(user)"
         >
         </User>
     </section>
@@ -32,6 +34,15 @@ export default {
     data(){
         return {
             users: []
+        }
+    },
+    methods:{
+        onProfileSelected(profile){
+            console.log(`profile selected ${profile.first_name}`)
+            //navigate to home with selected profile
+            let profile_type = profile.permissions > 1 ? 'adult' : 'kids';
+            console.log(`selected profile type ${profile_type}`)
+            this.$router.push({name:'UserHome',query:{profile_type}})
         }
     },
 

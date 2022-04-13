@@ -1,5 +1,6 @@
 <template>
 <section>
+
     <!-- custom component got here- show current selection -->
     <section class="movie-container">
       <div class="movie_data">
@@ -15,17 +16,19 @@
         :movies_trailer="currentMovie.movies_trailer"
       ></MoviePlayer></div>
     </section>
-    <br><br><br>
+    <br>
     <!-- custom component got here -->
-    <section class="movie-thumbs">
+       <section class="movie-thumbs">
       <MovieThumb
         v-for="movie in movies"
         :key="movie.movies_id"
         :thumb="movie.movies_cover"
+        :name="movie.movies_title"
         @click="setCurrentMovie(movie)"
       ></MovieThumb>
     </section>  
 
+   
 </section>
 </template>
 
@@ -37,14 +40,9 @@ import MovieThumb from "@/components/MovieThumb.vue";
 export default {
   name: "UserHome",
 
-  props: {
-      first_name: String,
-      role: String,
-      permissions: String,
-      avatar: String
-  },
+  props: ['profile_type'],
 
-  created() {
+  mounted() {
     //store this user to local host
     let currentUser = {
       name: this.first_name,
@@ -57,20 +55,23 @@ export default {
             localStorage.setItem('user', JSON.stringify(currentUser));
       }
 
-
-    fetch('/movies')
+    let uri = this.profile_type == "adult" ? "/movies" : "/tvshows"
+    console.log(`home page api uri ${uri}`)
+    fetch(uri)
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then(jsonRes => {
+                let movies = jsonRes.data
+                console.log(movies);
                 //push movies into vue instance
-                this.movies = data[0];
+                this.movies = movies;
                 //set deffault random movie
-                this.currentMovie = data[0][Math.floor(Math.random() * data[0].length)];
+                this.currentMovie = movies[Math.floor(Math.random() * movies.length)];
             })
         .catch(error => console.error(error));
   },
 
   data() {
+    console.log('home component is loaded')
     return {
       movies: [],
       currentMovie: {}
