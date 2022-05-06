@@ -11,16 +11,6 @@ netflixclone_frontend > Roku_Flashback > database_to_copy_to_php_my_admin
 - in frontend- npm install + npm run serve
 - enter correct login details OR sign-up
 
-# Features, Fixed & Dev Notes 
-https://docs.google.com/document/d/1R9CMQ13MKsndZQQW1OmvRt4v68bBbib2xLeSVXzU_AI/edit?usp=sharing
-
-# Project RoadMap (process explained)
-https://docs.google.com/document/d/1w-muOseIcZ1Zi9AVpxqcD5UR1WzkCs0pSw3wx24jedU/edit?usp=sharing
-
-# Team Members
-Arko Roychowdhury
-Madhur Kakkar
-
 ## Project setup
 ```
 npm install
